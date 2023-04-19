@@ -34,15 +34,22 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * Client Class
  *
+ * @property Interfaces\Application $application
+ * @property Interfaces\AuditLog $auditLog
  * @property Interfaces\Channel $channel
+ * @property Interfaces\Emoji   $emoji
  * @property Interfaces\Gateway $gateway
  * @property Interfaces\Guild   $guild
+ * @property Interfaces\GuildScheduledEvent $guildScheduledEvent
+ * @property Interfaces\GuildTemplate $guildTemplate
  * @property Interfaces\Invite  $invite
  * @property Interfaces\Oauth2  $oauth2
+ * @property Interfaces\Permissions $permissions
+ * @property Interfaces\StageInstance $stageInstance
+ * @property Interfaces\Sticker $sticker
  * @property Interfaces\User    $user
  * @property Interfaces\Voice   $voice
  * @property Interfaces\Webhook $webhook
- * @property Interfaces\Emoji   $emoji
  */
 class DiscordClient
 {
@@ -137,7 +144,7 @@ class DiscordClient
      */
     private function validateOptions(array $options)
     {
-        $currentVersion = 6;
+        $currentVersion = 9;
         $resolver       = new OptionsResolver();
         $resolver->setDefaults(
             [
@@ -431,7 +438,7 @@ class DiscordClient
                     if ($property['type'] !== 'array' && $property['type'] !== 'object') {
                         $models[$class]['properties'][$n] = [
                             'type'     => $property['type'],
-                            'location' => 'json',
+                            'location' => $property['location'] ?? 'json',
                         ];
                     }
                 }
