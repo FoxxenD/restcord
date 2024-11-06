@@ -2752,6 +2752,11 @@
                         "location": "uri",
                         "required": true
                     },
+                    "guild_scheduled_event.id": {
+                        "type": "snowflake",
+                        "location": "uri",
+                        "required": true
+                    },
                     "limit": {
                         "location": "query",
                         "type": "number",

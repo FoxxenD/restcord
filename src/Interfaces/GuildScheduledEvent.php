@@ -45,7 +45,7 @@ interface GuildScheduledEvent {
 	/**
 	 * @see https://discordapp.com/developers/docs/resources/guild-scheduled-event#get-guild-scheduled-event-users
 	 *
-	 * @param array $options ['guild.id' => 'snowflake', 'limit' => 'number', 'with_member' => 'boolean', 'before' => 'snowflake', 'after' => 'snowflake']
+	 * @param array $options ['guild.id' => 'snowflake', 'guild_scheduled_event.id' => 'snowflake', 'limit' => 'number', 'with_member' => 'boolean', 'before' => 'snowflake', 'after' => 'snowflake']
 	 * @return array
 	 */
 	public function getGuildScheduledEventUsers(array $options);
